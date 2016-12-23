@@ -28,6 +28,7 @@ build/Release
 
 # Dependency directories
 node_modules
+.idea
 jspm_packages
 
 # Optional npm cache directory
@@ -35,3 +36,12 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+# OS ===========
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+*.mode1v3
+*.perspectivev3
+*.pbxuser

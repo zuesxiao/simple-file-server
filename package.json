@@ -1,0 +1,33 @@
+{
+    "name"           : "simple",
+    "description"    : "Simple static file server",
+    "private"        : false,
+    "version"        : "0.0.1",
+    "keywords"       : [
+        "file",
+        "static",
+        "express"
+    ],
+    "homepage"       : "https://github.com/zuesxiao/simple-file-server",
+    "bugs"           : {
+        "url"  : "https://github.com/zuesxiao/simple-file-server/issues",
+        "email": "zeus.xiao@live.com"
+    },
+    "author"         : {
+        "name" : "zeus.xiao",
+        "email": "zeus.xiao@live.com",
+        "url"  : "https://github.com/zuesxiao"
+    },
+    "scripts"        : {
+        "prestart": "",
+        "start"   : "",
+        "pretest" : "",
+        "test"    : ""
+    },
+    "dependencies"   : {
+        "express" : "^4.14.0",
+        "fs-extra": "^1.0.0",
+        "multer"  : "^1.2.1"
+    },
+    "devDependencies": {}
+}
