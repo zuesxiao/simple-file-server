@@ -1,36 +1,37 @@
 {
-  "name": "simple",
-  "description": "Simple static file server",
-  "private": false,
-  "version": "0.0.1",
-  "keywords": [
-    "file",
-    "static",
-    "express"
-  ],
-  "homepage": "https://github.com/zuesxiao/simple-file-server",
-  "bugs": {
-    "url": "https://github.com/zuesxiao/simple-file-server/issues",
-    "email": "zeus.xiao@live.com"
-  },
-  "author": {
-    "name": "zeus.xiao",
-    "email": "zeus.xiao@live.com",
-    "url": "https://github.com/zuesxiao"
-  },
-  "scripts": {
-    "start": "",
-    "test": ""
-  },
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "fs-extra": "^1.0.0",
-    "multer": "^1.2.1"
-  },
-  "devDependencies": {
-    "mocha": "^3.2.0",
-    "should": "^11.1.2",
-    "supertest": "^2.0.1"
-  }
+    "name"           : "zeusxiao-sfs",
+    "description"    : "Simple file server",
+    "private"        : false,
+    "version"        : "0.0.1",
+    "keywords"       : [
+        "file",
+        "static",
+        "express"
+    ],
+    "homepage"       : "https://github.com/zuesxiao/simple-file-server",
+    "bugs"           : {
+        "url"  : "https://github.com/zuesxiao/simple-file-server/issues",
+        "email": "zeus.xiao@live.com"
+    },
+    "author"         : {
+        "name" : "zeus.xiao",
+        "email": "zeus.xiao@live.com",
+        "url"  : "https://github.com/zuesxiao"
+    },
+    "scripts"        : {
+        "start": "",
+        "test" : ""
+    },
+    "dependencies"   : {
+        "bluebird"   : "^3.4.7",
+        "body-parser": "^1.15.2",
+        "express"    : "^4.14.0",
+        "fs-extra"   : "^1.0.0",
+        "multer"     : "^1.2.1"
+    },
+    "devDependencies": {
+        "mocha"    : "^3.2.0",
+        "should"   : "^11.1.2",
+        "supertest": "^2.0.1"
+    }
 }

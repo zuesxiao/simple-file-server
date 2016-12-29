@@ -4,15 +4,14 @@
 
 'use strict';
 
-var os         = require('os'),
-    path       = require('path'),
+var path       = require('path'),
     bodyParser = require('body-parser'),
     express    = require('express');
 
 module.exports.init = function () {
     var app = express();
 
-    app.locals.host = '';
+    app.locals.host = process.env.HOST || 'localhost';
     app.disable('x-powered-by');
 
     app.use('/', express.static(path.resolve('./public'), {maxAge: 1000 * 3600 * 24}));
@@ -33,7 +32,7 @@ module.exports.init = function () {
         res.status(500).send(JSON.stringify(err));
     });
 
-    app.use(function (req, res, next) {
+    app.use(function (req, res) {
         return res.sendStatus(404);
     });
 
