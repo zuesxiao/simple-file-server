@@ -8,7 +8,7 @@ module.exports = function (app) {
     var path       = require('path'),
         multer     = require('multer'),
         upload     = multer({dest: 'uploads/'}),
-        controller = require(path.resolve('./app/controllers/file.server.controller')),
+        controller = require(path.resolve('./app/controllers/upload.server.controller')),
         express    = require('express'),
         router     = express.Router();
 

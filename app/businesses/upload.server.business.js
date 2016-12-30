@@ -5,10 +5,11 @@
 'use strict';
 
 // Load module dependencies
-var bluebird = require('bluebird'),
-    crypto   = require('crypto'),
-    fs       = require('fs'),
-    path     = require('path');
+var bluebird   = require('bluebird'),
+    crypto     = require('crypto'),
+    fs         = require('fs'),
+    path       = require('path'),
+    baseFolder = 'public';
 
 /**
  * Save object to file
@@ -16,14 +17,26 @@ var bluebird = require('bluebird'),
  */
 var saveObject = function (data) {
     return new bluebird(function (resolve, reject) {
+        // define variable
+        var folder      = 'objects',
+            storeFolder = path.join(baseFolder, folder),
+            content, fileName;
+
         // Stringify the json data
-        var content  = JSON.stringify(data);
-        // define the file extend name as obj
-        var extName  = '.obj';
+        content = JSON.stringify(data);
+
         // create a random file name
-        var fileName = crypto.randomBytes(16).toString('base64') + extName;
+        fileName = crypto.randomBytes(16).toString('hex') + '.json';
+
+        // create folder if not exist
+        if (!fs.existsSync(storeFolder)) {
+            fs.mkdirSync(storeFolder);
+        }
+
+        //crate full file name
+        fileName = path.join(folder, fileName);
         // save the object data to objects folder with random file name
-        fs.writeFile(path.join('./public/objects', fileName), content, 'utf8', function (err) {
+        fs.writeFile(path.join(baseFolder, fileName), content, 'utf8', function (err) {
             // if error occur reject the promise
             if (err) {
                 return reject(err);
@@ -46,38 +59,32 @@ var saveObject = function (data) {
 var saveFile = function (folder, file) {
     return new bluebird(function (resolve, reject) {
         //define file path and storage path
-        var filePath, storePath;
+        var storeFolder, fileName;
 
         //check arg folder
-        if (typeof folder !== 'string') {
-            file   = folder;
-            folder = 'files';
-        }
-
-        // create file path
-        filePath  = path.join(folder, file.originalname);
+        folder    = folder || 'files';
         // create file storage path
-        storePath = path.join('./public', filePath);
-        // fetch the file storage folder
-        folder    = path.dirname(storePath);
+        storeFolder = path.join(baseFolder, folder);
+        // create file path
+        fileName  = path.join(folder, file.originalname);
 
         // make file storage folder if not exists
-        if (!fs.existsSync(folder)) {
-            fs.mkdirSync(folder);
+        if (!fs.existsSync(storeFolder)) {
+            fs.mkdirSync(storeFolder);
         }
 
         // move upload file to storage file path
-        fs.rename(file.path, storePath, function (err) {
+        fs.rename(file.path, path.join(baseFolder, fileName), function (err) {
             // if error occur reject the promise
             if (err) {
                 return reject(err);
             }
 
             // remove the uploaded file
-            fs.unlinkSync(file.path);
+            //fs.unlinkSync(file.path);
             // resolve the promise with the file info
             return resolve({
-                name: filePath,
+                name: fileName,
                 size: file.size
             });
         });

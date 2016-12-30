@@ -22,7 +22,7 @@ module.exports.init = function () {
         res.sendStatus(200);
     });
 
-    require(path.resolve('./app/routes/file.server.routes'))(app);
+    require(path.resolve('./app/routes/upload.server.routes'))(app);
 
     app.use(function (err, req, res, next) {
         if (!err) {

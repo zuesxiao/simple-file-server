@@ -1,6 +1,7 @@
 # Logs
 logs
 uploads
+public/*/**
 *.log
 npm-debug.log*
 

@@ -19,8 +19,8 @@
         "url"  : "https://github.com/zuesxiao"
     },
     "scripts"        : {
-        "start": "",
-        "test" : ""
+        "start": "node server.js",
+        "test" : "mocha"
     },
     "dependencies"   : {
         "bluebird"   : "^3.4.7",

@@ -6,7 +6,7 @@
 
 var url      = require('url'),
     path     = require('path'),
-    business = require(path.resolve('./app/business/upload.server.business.js'));
+    business = require(path.resolve('./app/businesses/upload.server.business'));
 
 /**
  * Data upload controller.
